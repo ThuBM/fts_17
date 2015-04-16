@@ -22,4 +22,11 @@ class UserMailer < ApplicationMailer
 
     mail to: "to@example.org"
   end
+  
+  def tests_completed test, user
+    @greeting = "Hi #{user.username}"
+    @test = test
+
+    mail to: user.email, subject: "Ruby on Rails website"
+  end
 end

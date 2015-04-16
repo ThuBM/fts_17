@@ -151,6 +151,7 @@ GEM
       activesupport (>= 3.0.0)
       cocaine (~> 0.5.3)
       mime-types
+    pg (0.18.1)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
@@ -260,6 +261,7 @@ DEPENDENCIES
   minitest-reporters
   mysql2
   paperclip (~> 4.1)
+  pg
   pry
   rails (= 4.2.0)
   rails_12factor (= 0.0.2)

@@ -31,6 +31,7 @@ class TestsController < ApplicationController
     if @test.ready?
       @test.start_time = Time.zone.now
       @test.status = params[:status]
+      @test.current_session_id = session[:session_id]
       @test.save
     elsif @test.update_attributes test_params
       flash[:info] = "Update answer sheet!"

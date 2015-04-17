@@ -1,14 +1,13 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {registrations: 'users/registrations'}
-  root             'static_pages#home'
+  root 'static_pages#home'
   get 'help'    => 'static_pages#help'
   get 'contact' => 'static_pages#contact'
-  resources :users
-  resources :lessons
-  resources :tests
+  resources :users, only: [:show, :edit, :update]
+  resources :tests, only: [:index, :create, :show, :update]
   
   namespace :admin do
-    root             'users#index'
+    root 'users#index'
     resources :lessons
     resources :users
     resources :tests, only: [:index, :show, :update]

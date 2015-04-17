@@ -30,7 +30,9 @@
             <th><%= link_to test.lesson.name, test %></th>
             <th><%= test.created_at %></th>
             <th><%= test.status %></th>
-            <th><%= link_to get_word_of_link(test), test, id: "link-test-#{test.id}", data: {id: test.id, ready: test.ready?} %></th>
+            <th>
+              <%= link_to get_word_of_link(test), test %>
+            </th>
           </tr>
         <% end %>
       </tbody>

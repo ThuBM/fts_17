@@ -4,8 +4,8 @@ class Admin::UsersController < ApplicationController
   include UsersHelper
   
   def index
-    @users = User.without_user(current_user).paginate page: params[:page], 
-      per_page: 5
+    @users = User.without_user(current_user)
+    @users = @users.paginate page: params[:page], per_page: 5
   end
 
   def show

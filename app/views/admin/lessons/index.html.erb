@@ -19,9 +19,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @lessons.each do |lesson| %>
-            <%= render lesson %>
-          <% end %>
+          <%= render @lessons %>
         </tbody>
       </table>
       <div class="col-md-offset-9"><%= will_paginate %></div>

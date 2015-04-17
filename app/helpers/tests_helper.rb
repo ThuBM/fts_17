@@ -18,4 +18,8 @@ module TestsHelper
       ""
     end  	
   end
+
+  def current_session_doing_test? test
+    test.current_session_id == session[:session_id]
+  end
 end

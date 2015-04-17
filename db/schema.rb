@@ -11,13 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150402062436) do
+ActiveRecord::Schema.define(version: 20150416074014) do
 
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id", limit: 4
     t.integer  "option_id",   limit: 4
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.integer  "test_id",     limit: 4
     t.boolean  "correct",     limit: 1
     t.string   "content",     limit: 255
@@ -46,14 +46,15 @@ ActiveRecord::Schema.define(version: 20150402062436) do
   end
 
   create_table "tests", force: :cascade do |t|
-    t.integer  "user_id",    limit: 4
-    t.integer  "lesson_id",  limit: 4
-    t.integer  "answer_id",  limit: 4
-    t.integer  "mark",       limit: 4
-    t.string   "status",     limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.integer  "user_id",            limit: 4
+    t.integer  "lesson_id",          limit: 4
+    t.integer  "answer_id",          limit: 4
+    t.integer  "mark",               limit: 4
+    t.string   "status",             limit: 255
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.datetime "start_time"
+    t.string   "current_session_id", limit: 255
   end
 
   create_table "users", force: :cascade do |t|

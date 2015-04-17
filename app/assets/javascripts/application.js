@@ -45,7 +45,7 @@ function secondPassed() {
     clearInterval(countdownTimer);
     $("div#countdown").html("Time out");
     $("#status").val("Completed");
-    $("#submit-button").click()
+    $("#submit-button").click();
   } else {
     seconds--;
   }

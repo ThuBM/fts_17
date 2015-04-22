@@ -7,6 +7,8 @@ class Test < ActiveRecord::Base
 
   before_create :init_answers
 
+  acts_as_xlsx
+
   scope :warning_first, -> {where("created_at < ? and status = 'Ready'", Time.zone.now - 5.days)}
 
   def completed?

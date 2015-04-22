@@ -19,6 +19,21 @@ module TestsHelper
     end  	
   end
 
+  def check_answer answer
+   answer.correct ? "CORRECT" : "NOT"
+  end
+
+  def user_answer answer
+    answer.question.options.each_with_index do |option, index|
+      if answer.option_id == option.id
+        return "Option #{ index + 1}" 
+      end
+      if answer.option_id == nil
+        return "No choose"
+      end 
+    end
+  end
+
   def current_session_doing_test? test
     test.current_session_id == session[:session_id]
   end

@@ -24,6 +24,10 @@ class TestsController < ApplicationController
     else
       @count_down_time = @test.lesson.time * 60 - (Time.zone.now - @test.start_time).to_i
     end
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def update

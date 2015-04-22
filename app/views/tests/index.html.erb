@@ -33,6 +33,9 @@
             <th>
               <%= link_to get_word_of_link(test), test %>
             </th>
+            <% if test.completed? %>
+              <th><%= link_to "Download as Excel", test_path(test, :format => :xlsx) %><th>
+            <% end %>
           </tr>
         <% end %>
       </tbody>

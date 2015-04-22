@@ -24,6 +24,10 @@ class TestsController < ApplicationController
     else
       @count_down_time = @test.lesson.time * 60 - (Time.zone.now - @test.start_time).to_i
     end
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def update
@@ -31,11 +35,15 @@ class TestsController < ApplicationController
     if @test.ready?
       @test.start_time = Time.zone.now
       @test.status = params[:status]
+      @test.current_session_id = session[:session_id]
       @test.save
     elsif @test.update_attributes test_params
       flash[:info] = "Update answer sheet!"
       @count_down_time = @test.lesson.time * 60 - (Time.zone.now - @test.start_time).to_i
-      @test.auto_check if @test.completed?
+      if @test.completed?
+        @test.auto_check
+        UserMailer.tests_completed(@test, current_user).deliver_now
+      end
       @test.save
       render :show
     else

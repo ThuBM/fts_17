@@ -1,5 +1,5 @@
 <div class="answer_sheets">
-  <p><%= f.options[:child_index]+1 %>.&nbsp
+  <p><%= f.index + 1 %>.&nbsp
     <%= f.hidden_field :question_id, value: f.object.question.id %>
     <%= f.object.question.content %>
   </p>

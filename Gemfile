@@ -22,6 +22,7 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.0'
 gem 'devise'
+gem 'acts_as_xlsx'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'faker',                '1.4.2'
@@ -34,6 +35,7 @@ gem 'jquery-datetimepicker-rails', '~> 2.4.1.0'
 gem 'paperclip', '~> 4.1'
 gem 'pry'
 gem 'faker', '1.4.2'
+gem 'rufus-scheduler'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

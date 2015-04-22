@@ -1,5 +1,7 @@
 <% provide(:title, 'Do test') %>
-<div class="row">
+<div class="row" id="show-test-info" data-id="<%= @test.id %>" 
+  data-ready="<%= @test.ready? %>" data-doing="<%= @test.testing? %>" 
+  data-is-current-session="<%= current_session_doing_test?(@test) %>">
   <div class="box">
     <div class="col-lg-12">
       <div class="col-md-10 col-md-offset-1 test_user_name">
@@ -23,7 +25,7 @@
     </div>
     <div class="col-md-12">
     </div>
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-md-6 col-md-offset-3 count-down" data-count-down-time="<%= @count_down_time %>">
       <%= form_for(@test) do |f| %>
         <%= f.hidden_field :status, value: "Submitted", id: "status" %>
         <%= f.hidden_field :user_id, value: @test.user.id %>
@@ -37,8 +39,9 @@
   </div>
 </div>
 
+<%= javascript_include_tag 'show-tests' %>
 <script>
-  var seconds = <%= @count_down_time %>;
+  var seconds = $(".count-down").data("count-down-time");
   secondPassed();
   var countdownTimer = setInterval(function(){
     secondPassed();

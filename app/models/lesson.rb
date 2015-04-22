@@ -4,6 +4,7 @@ class Lesson < ActiveRecord::Base
     reject_if: :reject_questions, allow_destroy: true
   validates :name, presence: true
 
+  private
   def reject_questions(attributes)
     attributes[:content].blank?
   end

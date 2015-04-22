@@ -9,13 +9,12 @@
         <% flash.each do |message_type, message| %>
           <div class="alert alert-<%= message_type %>" style="text-align: center;">
             <%= message %>
-          <% end %></div>
+          </div>
+        <% end %>
       </div>
       <ul class="col-lg-12">
         <div class="col-md-offset-9"><%= will_paginate %></div>
-        <% @users.each do |user| %>
-          <%= render user %>
-        <% end %>
+          <%= render @users %>
         <div class="col-md-offset-9"><%= will_paginate %></div>
       </ul>
     </div>

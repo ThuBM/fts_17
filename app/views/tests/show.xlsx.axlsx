@@ -1,0 +1,25 @@
+wb = xlsx_package.workbook
+styles = wb.styles
+title = styles.add_style sz: 12, b: true, border: Axlsx::STYLE_THIN_BORDER
+info = styles.add_style i: true, sz: 15, bg_color: '567DCC'
+wb.add_worksheet(name: "Test") do |sheet|
+  sheet.add_row ["Report test of " + @test.user.username + " at " + 
+    @test.start_time.to_formatted_s(:long_ordinal)], style: info
+  sheet.add_row ["Name", @test.user.username]
+  sheet.add_row ["Email", @test.user.email]
+  sheet.add_row ["Lession", @test.lesson.name]
+  sheet.add_row ["Started time", @test.start_time]
+  sheet.add_row ["Your Point", @test.answers.correct_answer.count]  
+  sheet.add_row [""]
+  sheet.add_row ["Question", "Option1", "Option2", "Option3", "Option4", "Answer",
+  "Your Choise", "Correct"], style: title
+  @test.answers.each do |answer|
+    data = []
+    data << answer.question.content
+    answer.question.options.each{|option| data << option.content}
+    data << answer.content
+    data << user_answer(answer)
+    data << check_answer(answer)
+    sheet.add_row data
+  end
+end

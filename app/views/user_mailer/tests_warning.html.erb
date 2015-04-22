@@ -1,0 +1,10 @@
+<h1>UserMailer#tests_warning</h1>
+
+<p>
+  <%= @greeting %>
+</p>
+<br/>
+You have <%= @tests.count %> tests that is not started! <br />
+<% @tests.each do |test| %>
+  <li><%= link_to test.lesson.name, tests_url %></li>
+<% end %>
